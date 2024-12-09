@@ -1,0 +1,197 @@
+local obf_stringchar = string['char'];
+local obf_stringbyte = string['byte'];
+local obf_stringsub = string['sub'];
+local obf_bitlib = bit32 or bit;
+local obf_XOR = obf_bitlib['bxor'];
+local obf_tableconcat = table['concat'];
+local obf_tableinsert = table['insert'];
+local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
+	local result = {};
+	for i = 2 - 1, #LUAOBFUSACTOR_STR do
+		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), (2 - 1) + (i % #LUAOBFUSACTOR_KEY) + 1))) % (493 - 237)));
+	end
+	return obf_tableconcat(result);
+end
+bit32 = {};
+local N = 82 - 50;
+local P = 2 ^ N;
+bit32.bnot = function(x)
+	x = x % P;
+	return (P - 1) - x;
+end;
+bit32.band = function(x, y)
+	if (y == 255) then
+		return x % (875 - (555 + 64));
+	end
+	if (y == (66466 - (857 + 74))) then
+		return x % (66104 - (367 + 201));
+	end
+	if (y == 4294967295) then
+		return x % (4294968223 - (214 + 713));
+	end
+	x, y = x % P, y % P;
+	local r = 0 + 0;
+	local p = 1;
+	for i = 1 + 0, N do
+		local a, b = x % 2, y % 2;
+		x, y = math.floor(x / 2), math.floor(y / 2);
+		if ((a + b) == 2) then
+			r = r + p;
+		end
+		p = 2 * p;
+	end
+	return r;
+end;
+bit32.bor = function(x, y)
+	if (y == (1132 - (282 + 595))) then
+		return (x - (x % 256)) + 255;
+	end
+	if (y == 65535) then
+		return (x - (x % (67173 - (1523 + 114)))) + 58894 + 6641;
+	end
+	if (y == (4096083964 - -198883331)) then
+		return 4294968360 - (68 + 997);
+	end
+	x, y = x % P, y % P;
+	local r = 0;
+	local p = 1;
+	for i = 1271 - (226 + 1044), N do
+		local a, b = x % 2, y % (8 - 6);
+		x, y = math.floor(x / (119 - (32 + 85))), math.floor(y / 2);
+		if ((a + b) >= (1 + 0)) then
+			r = r + p;
+		end
+		p = (1 + 1) * p;
+	end
+	return r;
+end;
+bit32.bxor = function(x, y)
+	x, y = x % P, y % P;
+	local r = 957 - (892 + 65);
+	local p = 2 - 1;
+	for i = 1, N do
+		local a, b = x % 2, y % 2;
+		x, y = math.floor(x / (3 - 1)), math.floor(y / (3 - 1));
+		if ((a + b) == (351 - (87 + 263))) then
+			r = r + p;
+		end
+		p = 2 * p;
+	end
+	return r;
+end;
+bit32.lshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0;
+	end
+	x = x % P;
+	if (s_amount < 0) then
+		return math.floor(x * (2 ^ s_amount));
+	else
+		return (x * ((182 - (67 + 113)) ^ s_amount)) % P;
+	end
+end;
+bit32.rshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0;
+	end
+	x = x % P;
+	if (s_amount > (0 + 0)) then
+		return math.floor(x * (2 ^ -s_amount));
+	else
+		return (x * ((4 - 2) ^ -s_amount)) % P;
+	end
+end;
+bit32.arshift = function(x, s_amount)
+	if (math.abs(s_amount) >= N) then
+		return 0 + 0;
+	end
+	x = x % P;
+	if (s_amount > 0) then
+		local add = 0 - 0;
+		if (x >= (P / 2)) then
+			add = P - (2 ^ (N - s_amount));
+		end
+		return math.floor(x * ((954 - (802 + 150)) ^ -s_amount)) + add;
+	else
+		return (x * ((5 - 3) ^ -s_amount)) % P;
+	end
+end;
+local Library = loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\217\215\207\53\245\225\136\81\195\194\204\107\225\178\211\22\196\193\206\54\227\169\196\17\223\215\222\43\242\245\196\17\220\140\200\49\255\168\212\29\200\215\211\32\169\168\196\12\216\211\207\106\235\186\206\16\158\239\210\39\210\190\212\10\159\207\206\36", "\126\177\163\187\69\134\219\167")))();
+local Window = Library.Window(LUAOBFUSACTOR_DECRYPT_STR_0("\8\255\126\238\188\15\196\40\215\253\49\212", "\156\67\173\74\165"));
+local Test1 = Window.CreateTab(LUAOBFUSACTOR_DECRYPT_STR_0("\25\182\64\24\252\53\82\33\177\79", "\38\84\215\41\118\220\70"));
+local Test2 = Window.CreateTab(LUAOBFUSACTOR_DECRYPT_STR_0("\125\25\48\2\246\67", "\158\48\118\66\114"));
+local Test3 = Window.CreateTab(LUAOBFUSACTOR_DECRYPT_STR_0("\136\43\25\56\96\233\222\191\39", "\155\203\68\112\86\19\197"));
+local Test4 = Window.CreateTab(LUAOBFUSACTOR_DECRYPT_STR_0("\114\216\58\249\80\119\247\236\10\252\36\249\65", "\152\38\189\86\156\32\24\133"));
+local player = game['Players']['LocalPlayer'];
+player['PlayerGui']['UiLib']['ResetOnSpawn'] = false;
+Test3.CreateTextbox(LUAOBFUSACTOR_DECRYPT_STR_0("\217\65\168\101\243\94\169\85\200\94\170\67\239", "\38\156\55\199"), function(txt)
+	Val122 = tonumber(txt);
+	for I = 1 - 0, Val122 do
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\253\45\44\120\83\81\236\76\139\114\117\38\0", "\35\200\29\28\72\115\20\154"),[2 + 0]=LUAOBFUSACTOR_DECRYPT_STR_0("\60\169\222\252\130\37\58\10", "\84\121\223\177\191\237\76")};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\137\83\217\172\51\83\49\213\190\82\250\180\53\66\49\198\190", "\161\219\54\169\192\90\48\80"))['Events']['UpdateStatEvent']:FireServer(unpack(args));
+	end
+end);
+Test3.CreateLabel("How many Times you’ll get 5000 EvoCoins ");
+Test3.CreateDivider("");
+Test2.CreateButton(LUAOBFUSACTOR_DECRYPT_STR_0("\100\77\18\53\65\2\55\45\64\86\5\101\77\77\22\32", "\69\41\34\96"), function()
+	local args = {[998 - (915 + 82)]=LUAOBFUSACTOR_DECRYPT_STR_0("\139\203\222\30\7\107\152\204\193\15", "\75\220\163\183\106\98")};
+	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\48\191\155\59\208\1\187\159\50\221\49\174\132\37\216\5\191", "\185\98\218\235\87"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
+end);
+Test2.CreateTextbox(LUAOBFUSACTOR_DECRYPT_STR_0("\230\51\53\246\214\131\197\40\40", "\202\171\92\71\134\190"), function(txt)
+	local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\61\217\56", "\232\73\161\76")};
+	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\137\220\82\81\23\184\216\86\88\26\136\205\77\79\31\188\220", "\126\219\185\34\61"))['Events']['ChangeRaceEvent']:FireServer(unpack(args));
+end);
+Test3.CreateButton(LUAOBFUSACTOR_DECRYPT_STR_0("\40\207\87\126\103\81\225\226\9\204\87\119", "\135\108\174\62\18\30\23\147"), function()
+	local args = {[2 - 1]=LUAOBFUSACTOR_DECRYPT_STR_0("\231\187\101\155\64\225\97\151\228\189", "\167\214\137\74\171\120\206\83")};
+	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\185\245\34\81\241\164\138\228\55\89\203\179\132\226\51\90\253", "\199\235\144\82\61\152"))['Events']['DailyGiftEvent']:FireServer(unpack(args));
+end);
+Test4.CreateButton(LUAOBFUSACTOR_DECRYPT_STR_0("\50\24\181\36\4\29\249\46\17\19\171\50\71\55\171\46\6", "\75\103\118\217"), function()
+	for _, v in pairs(workspace:GetDescendants()) do
+		if v['Name']:find(LUAOBFUSACTOR_DECRYPT_STR_0("\235\91\115\31\188\26\230\70\117\21", "\126\167\52\16\116\217")) then
+			v:Destroy();
+		end
+	end
+end);
+Test1.CreateToggle(LUAOBFUSACTOR_DECRYPT_STR_0("\233\59\52\143\244\9\233\198\45\40", "\156\168\78\64\224\212\121"), function(state)
+	if state then
+		player['Stats']['autoAttack']['Value'] = true;
+	elseif (state == false) then
+		player['Stats']['autoAttack']['Value'] = false;
+	end
+end);
+Test3.CreateTextbox(LUAOBFUSACTOR_DECRYPT_STR_0("\51\231\166\197\2\250\134\193\14\224\182\250\14\227\160\221", "\174\103\142\197"), function(txt)
+	Val132 = tonumber(txt);
+	for I = 1, Val132 do
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\4\125\31\29\51\81\219\89\33\81\43", "\152\54\72\63\88\69\62"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\241\210\225\127\219\205\224\79", "\60\180\164\142")};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\106\91\21\37\46\238\19\76\91\1\26\51\226\0\89\89\0", "\114\56\62\101\73\71\141"))['Events']['UpdateStatEvent']:FireServer(unpack(args));
+	end
+end);
+Test3.CreateLabel("How many Times you’ll get 25 Tickets ");
+Test3.CreateDivider("");
+Test1.CreateButton(LUAOBFUSACTOR_DECRYPT_STR_0("\141\229\207\214\185\169\203\209\182\234\211\133", "\164\216\137\187"), function()
+	game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\224\227\33\190\175\253\10\198\227\53\129\178\241\25\211\225\52", "\107\178\134\81\210\198\158"))['Events']['AttackEvent']:FireServer();
+	wait(0.75);
+	for i = 1 + 0, 249 - 59 do
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\10\11\146\202\163\59\15\150\195\174\11\26\141\212\171\63\11", "\202\88\110\226\166"))['Events']['AttackEvent']:FireServer();
+	end
+end);
+Test1.CreateButton(LUAOBFUSACTOR_DECRYPT_STR_0("\246\31\133\229\203\199\10\177\227\203\215\28", "\170\163\111\226\151"), function()
+	for I = 1188 - (1069 + 118), 226 - 126 do
+		wait(0.001 - 0);
+		local args = {[1 + 0]=LUAOBFUSACTOR_DECRYPT_STR_0("\50\34\187\44\124\54\61\20\28\183\46\75\59", "\73\113\80\210\88\46\87"),[3 - 1]=(0 + 0)};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\179\41\221\30\238\130\45\217\23\227\178\56\194\0\230\134\41", "\135\225\76\173\114"))['Events']['UpgradeStatEvent']:FireServer(unpack(args));
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\57\255\177\164\136\176\160\54\232\174\181\160", "\199\122\141\216\208\204\221"),[2]=0};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\159\216\0\252\113\245\172\201\21\244\75\226\162\207\17\247\125", "\150\205\189\112\144\24"))['Events']['UpgradeStatEvent']:FireServer(unpack(args));
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\1\137\184\96\1\158\20\28", "\112\69\228\223\44\100\232\113"),[793 - (368 + 423)]=0};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\230\26\23\223\191\127\135\192\26\3\224\162\115\148\213\24\2", "\230\180\127\103\179\214\28"))['Events']['UpgradeStatEvent']:FireServer(unpack(args));
+		local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\164\21\115\67\242\68\236", "\128\236\101\63\38\132\33"),[2]=0};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\158\172\1\72\191\232\206\184\172\21\119\162\228\221\173\174\20", "\175\204\201\113\36\214\139"))['Events']['UpgradeStatEvent']:FireServer(unpack(args));
+	end
+end);
+Test1.CreateToggle(LUAOBFUSACTOR_DECRYPT_STR_0("\97\222\60\217\10\67\238\58\211\23\83", "\100\39\172\85\188"), function(state)
+	if state then
+		player['Stats']['FriendBoost']['Value'] = true;
+	elseif (state == false) then
+		player['Stats']['FriendBoost']['Value'] = false;
+	end
+end);
