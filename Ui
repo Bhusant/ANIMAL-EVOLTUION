@@ -12,6 +12,7 @@ local function CreateElement(elementType, parent, properties)
     return element
 end
 
+-- Enabling dragging functionality on UI frames.
 function Library:EnableDragging(frame)
     local dragging, dragStart, startPos
     frame.InputBegan:Connect(function(input)
@@ -34,6 +35,7 @@ function Library:EnableDragging(frame)
     end)
 end
 
+-- Window Creation
 function Library:Window(title)
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "UILibrary"
@@ -42,16 +44,17 @@ function Library:Window(title)
     local mainFrame = CreateElement("Frame", screenGui, {
         Size = UDim2.new(0, 500, 0, 400),
         Position = UDim2.new(0.25, 0, 0.25, 0),
-        BackgroundColor3 = Color3.fromRGB(34, 34, 41),  -- Dark background
-        BorderColor3 = Color3.fromRGB(60, 60, 60),  -- Subtle border
+        BackgroundColor3 = Color3.fromRGB(34, 34, 41),
+        BorderColor3 = Color3.fromRGB(60, 60, 60),
         BorderSizePixel = 2,
         ZIndex = 2
     })
     Library:EnableDragging(mainFrame)
 
+    -- Top Bar Creation
     local topBar = CreateElement("Frame", mainFrame, {
         Size = UDim2.new(1, 0, 0, 30),
-        BackgroundColor3 = Color3.fromRGB(25, 25, 35), -- Dark header
+        BackgroundColor3 = Color3.fromRGB(25, 25, 35),
         BorderColor3 = Color3.fromRGB(0, 0, 0),
         BorderSizePixel = 0
     })
@@ -74,6 +77,7 @@ function Library:Window(title)
     }
 end
 
+-- Create Tabs with dynamic content
 function Library:CreateTab(parent, tabName)
     local tabFrame = CreateElement("ScrollingFrame", parent, {
         Size = UDim2.new(1, -10, 1, -40),
@@ -81,7 +85,7 @@ function Library:CreateTab(parent, tabName)
         CanvasSize = UDim2.new(0, 0, 0, 0),
         BackgroundColor3 = Color3.fromRGB(45, 45, 55),
         ScrollBarThickness = 6,
-        Visible = false
+        Visible = false,
     })
     CreateElement("UIListLayout", tabFrame, {Padding = UDim.new(0, 5)})
 
@@ -115,11 +119,12 @@ function Library:CreateTab(parent, tabName)
     }
 end
 
+-- Create button
 function Library:CreateButton(parent, buttonText, callback)
     local button = CreateElement("TextButton", parent, {
         Text = buttonText,
         Size = UDim2.new(0.9, 0, 0, 40),
-        BackgroundColor3 = Color3.fromRGB(60, 60, 70),  -- Slightly lighter for button
+        BackgroundColor3 = Color3.fromRGB(60, 60, 70),
         Font = Enum.Font.SourceSansBold,
         TextSize = 18,
         TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -131,6 +136,7 @@ function Library:CreateButton(parent, buttonText, callback)
     return button
 end
 
+-- Create Label
 function Library:CreateLabel(parent, labelText)
     return CreateElement("TextLabel", parent, {
         Text = labelText,
@@ -142,6 +148,7 @@ function Library:CreateLabel(parent, labelText)
     })
 end
 
+-- Create Divider
 function Library:CreateDivider(parent, dividerText)
     local divider = CreateElement("Frame", parent, {
         Size = UDim2.new(0.9, 0, 0, 2),
@@ -158,6 +165,7 @@ function Library:CreateDivider(parent, dividerText)
     label.Position = UDim2.new(0, 10, 0, -12)
 end
 
+-- Create Toggle
 function Library:CreateToggle(parent, toggleText, callback)
     local toggle = CreateElement("TextButton", parent, {
         Text = toggleText,
@@ -178,6 +186,7 @@ function Library:CreateToggle(parent, toggleText, callback)
     return toggle
 end
 
+-- Create Slider
 function Library:CreateSlider(parent, sliderText, min, max, callback)
     local sliderFrame = CreateElement("Frame", parent, {
         Size = UDim2.new(0.9, 0, 0, 40),
@@ -194,14 +203,16 @@ function Library:CreateSlider(parent, sliderText, min, max, callback)
     return sliderFrame
 end
 
+-- Create Textbox
 function Library:CreateTextbox(parent, textboxText, callback)
     local textbox = CreateElement("TextBox", parent, {
         Text = textboxText,
-        Size = UDim2.new(0.9, 0, 0, 40),
+        Size = UDim2.new(0.9, 0, 0, 30),
         BackgroundColor3 = Color3.fromRGB(60, 60, 70),
-        Font = Enum.Font.SourceSansBold,
+        Font = Enum.Font.SourceSans,
         TextSize = 18,
-        TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextColor3 = Color3.fromRGB(255, 255, 255),
+        ClearTextOnFocus = false
     })
     textbox.FocusLost:Connect(function()
         if callback then
